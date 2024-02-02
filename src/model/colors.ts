@@ -36,8 +36,8 @@ export const colors = signal<Colors | undefined>(() => {
         name: '',
         hex,
         count: 1,
-        dark: false,
-        border: false,
+        dark: r * 0.299 + g * 0.587 + b * 0.114 < 150,
+        border: r < 32 && g < 32 && b < 32,
       };
     } else {
       map[hex].count++;

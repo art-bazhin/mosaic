@@ -3,6 +3,7 @@ import { Coords } from './coords';
 import { base64, cols, context, rows } from './image';
 import { withLS } from '../lib/with-ls';
 import { FRAME_SIZE } from './constants';
+import { getHexString } from '../lib/color-functions';
 
 const frameX = withLS('FRAME_X', 0);
 const frameY = withLS('FRAME_Y', 0);
@@ -52,7 +53,7 @@ export const frameCoords = signal<Coords>(() => {
   };
 });
 
-const frameData = signal(() => {
+export const frameData = signal(() => {
   const ctx = context.get();
   if (!ctx) return;
 
@@ -61,7 +62,13 @@ const frameData = signal(() => {
     frameY.get() * FRAME_SIZE,
     FRAME_SIZE,
     FRAME_SIZE,
-  );
+  ).data;
 
-  return data;
+  const arr: (string | null)[] = [];
+
+  for (let i = 0; i < data.length; i += 4) {
+    arr.push(getHexString(data[i], data[i + 1], data[i + 2], data[i + 3]));
+  }
+
+  return arr;
 });
