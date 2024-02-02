@@ -1,10 +1,10 @@
-import { component, h, node } from '@spred/dom';
+import { component, h } from '@spred/dom';
 import { fileInput } from '../file-input/file-input';
-import { image, file } from '../../model/image';
+import { imageMap } from '../image-map/image-map';
 
 export const App = component(() => {
   return h(() => {
-    fileInput({ file });
-    node(image);
+    fileInput();
+    imageMap();
   });
 });

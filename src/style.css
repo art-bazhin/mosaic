@@ -195,3 +195,36 @@ button:focus-visible {
 .file-input__button {
   margin-right: 16px;
 }
+
+.image-map {
+  display: block;
+  background: var(--black);
+  overflow: hidden;
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+}
+
+.image-map img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.image-map span {
+  display: inline-block;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-map span:hover {
+  background-color: rgba(80, 80, 80, 0.8);
+  cursor: pointer;
+}
+
+.image-map span.selected {
+  background: none;
+  border: 1px dashed var(--white);
+  transition: none;
+}

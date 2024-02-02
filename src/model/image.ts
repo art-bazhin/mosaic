@@ -1,6 +1,7 @@
 import { on, signal } from '@spred/core';
 import { withLS } from '../lib/withLS';
 import { async } from '../lib/async';
+import { FRAME_SIZE } from './constants';
 
 const file = signal<File>();
 
@@ -13,13 +14,21 @@ const imageState = async((cb: (value: HTMLImageElement) => void) => {
 
   image.setAttribute('style', 'image-rendering: pixelated');
   image.src = base64.get();
-  image.onload = () => {
-    image.height = image.height * 8;
-    cb(image);
-  };
+  image.onload = () => cb(image);
 });
 
 const image = signal(() => imageState.get().data);
+
+const width = signal(() => {
+  return ceil(image.get()?.width || 0);
+});
+
+const height = signal(() => {
+  return ceil(image.get()?.height || 0);
+});
+
+const cols = signal(() => width.get() / FRAME_SIZE);
+const rows = signal(() => height.get() / FRAME_SIZE);
 
 const reader = new FileReader();
 
@@ -29,4 +38,8 @@ reader.onload = (e) => {
 
 on(file, (file) => reader.readAsDataURL(file));
 
-export { file, base64, image };
+function ceil(value: number) {
+  return Math.ceil(value / FRAME_SIZE) * FRAME_SIZE;
+}
+
+export { file, base64, image, width, height, cols, rows };

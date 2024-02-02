@@ -1,12 +1,9 @@
-import { WritableSignal, batch } from '@spred/core';
+import { batch } from '@spred/core';
 import { component, h, template } from '@spred/dom';
 import { withLS } from '../../lib/withLS';
+import { file } from '../../model/image';
 
-interface FileInputProps {
-  file: WritableSignal<File | undefined>;
-}
-
-const FileInput = component(({ file }: FileInputProps) => {
+const FileInput = component(() => {
   return h('div', { class: 'file-input' }, () => {
     const filename = withLS('FILENAME', '');
 
