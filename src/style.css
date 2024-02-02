@@ -136,10 +136,16 @@ table {
   --black: #000000;
   --dark: #0c202f;
   --middle: #445769;
+  --middle-l1: #4f6478;
+  --middle-l2: #597188;
   --light: #ced4dc;
 
   --bg: var(--light);
   --fg: var(--black);
+  --bg-inverted: var(--middle);
+  --bg-hover: var(--middle-l1);
+  --bg-active: var(--middle-l2);
+  --fg-inverted: var(--white);
 }
 
 body {
@@ -150,4 +156,42 @@ body {
   font-size: 16px;
   line-height: 1.2;
   font-family: system-ui;
+}
+
+button {
+  border: none;
+  background: var(--bg-inverted);
+  color: var(--fg-inverted);
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font: inherit;
+  transition: background-color 0.1s ease-in-out;
+}
+
+button:hover {
+  background: var(--bg-hover);
+}
+
+button:active {
+  background: var(--bg-active);
+  transition: none;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: 0px 0px 4px 2px var(--bg-active);
+}
+
+.file-input {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.file-input input {
+  display: none;
+}
+
+.file-input__button {
+  margin-right: 16px;
 }
