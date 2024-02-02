@@ -198,7 +198,7 @@ button:focus-visible {
 
 .image-map {
   display: block;
-  background: var(--black);
+  background: magenta;
   overflow: hidden;
   position: relative;
   font-size: 0;

@@ -1,6 +1,6 @@
 import { batch } from '@spred/core';
 import { component, h, template } from '@spred/dom';
-import { withLS } from '../../lib/withLS';
+import { withLS } from '../../lib/with-ls';
 import { file } from '../../model/image';
 
 const FileInput = component(() => {

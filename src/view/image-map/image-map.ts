@@ -2,10 +2,7 @@ import { signal } from '@spred/core';
 import { component, h, list, node, template } from '@spred/dom';
 import { frameCoords, setFrameCoords } from '../../model/frame';
 import { cols, height, image, rows, width } from '../../model/image';
-import { FRAME_SIZE } from '../../model/constants';
-
-const SCALE_RATIO = 8;
-const SECTOR_SIZE = FRAME_SIZE * SCALE_RATIO;
+import { SCALE_RATIO, SECTOR_SIZE } from '../../model/constants';
 
 interface SectorProps {
   x: () => number;
