@@ -283,7 +283,7 @@ button:focus-visible {
 
 .color {
   margin-right: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   flex-shrink: 0;
   text-align: center;
 }
@@ -293,7 +293,7 @@ button:focus-visible {
   height: 64px;
   background: magenta;
   border: 2px solid var(--fg);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
