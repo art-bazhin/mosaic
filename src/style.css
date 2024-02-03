@@ -148,6 +148,13 @@ table {
   --fg-inverted: var(--white);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark);
+    --fg: var(--white);
+  }
+}
+
 body {
   background-color: var(--bg);
   color: var(--fg);
