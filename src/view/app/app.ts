@@ -3,6 +3,7 @@ import { fileInput } from '../file-input/file-input';
 import { imageMap } from '../image-map/image-map';
 import { frameScheme } from '../frame-scheme/frame-scheme';
 import { image } from '../../model/image';
+import { colorList } from '../color-list/color-list';
 
 const Content = component(() =>
   h(() => {
@@ -10,6 +11,8 @@ const Content = component(() =>
       frameScheme();
       imageMap();
     });
+
+    colorList();
   }),
 );
 

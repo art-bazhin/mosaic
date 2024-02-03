@@ -2,7 +2,7 @@ import { signal } from '@spred/core';
 import { imageData } from './image';
 import { getHexString } from '../lib/color-functions';
 
-interface ColorInfo {
+export interface ColorInfo {
   name: string;
   hex: string;
   border: boolean;

@@ -269,6 +269,33 @@ button:focus-visible {
   border-radius: 0;
 }
 
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.color {
+  margin-right: 24px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.color > div {
+  width: 64px;
+  height: 64px;
+  background: magenta;
+  border: 2px solid var(--fg);
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
 div.dark {
   color: white;
 }
