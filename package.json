@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "@spred/core": "^0.37.2",
-    "@spred/dom": "^0.8.2"
+    "@spred/dom": "^0.9.0"
   }
 }

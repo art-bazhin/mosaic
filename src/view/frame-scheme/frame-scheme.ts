@@ -16,20 +16,22 @@ const Pixel = component(({ hex }: { hex: Signal<string | null> }) => {
     'div',
     {
       class: {
-        border: () => color.get()?.border,
-        dark: () => color.get()?.dark,
-        absent: () => !hex.get(),
+        border: signal(() => color.get()?.border),
+        dark: signal(() => color.get()?.dark),
+        absent: signal(() => !hex.get()),
       },
       attrs: {
-        style: () =>
-          `background-color: ${hex.get() || 'magenta'};` +
-          `width: ${PIXEL_SIZE}px; ` +
-          `height: ${PIXEL_SIZE}px;`,
+        style: signal(
+          () =>
+            `background-color: ${hex.get() || 'magenta'};` +
+            `width: ${PIXEL_SIZE}px; ` +
+            `height: ${PIXEL_SIZE}px;`,
+        ),
       },
     },
     () => {
       h('span', {
-        textContent: () => color.get()?.name || null,
+        text: signal(() => color.get()?.name || null),
       });
     },
   );

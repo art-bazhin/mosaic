@@ -5,20 +5,20 @@ import { cols, height, image, rows, width } from '../../model/image';
 import { SCALE_RATIO, SECTOR_SIZE } from '../../model/constants';
 
 interface SectorProps {
-  x: () => number;
-  y: () => number;
+  x: number;
+  y: number;
 }
 
 const Sector = component(({ x, y }: SectorProps) => {
   return h('span', {
     onclick() {
-      setFrameCoords(x(), y());
+      setFrameCoords(x, y);
     },
     class: {
-      selected: () => {
+      selected: signal(() => {
         const frame = frameCoords.get();
-        return frame.x === x() && frame.y === y();
-      },
+        return frame.x === x && frame.y === y;
+      }),
     },
     attrs: {
       style: `width: ${SECTOR_SIZE}px; height: ${SECTOR_SIZE}px`,
@@ -27,14 +27,14 @@ const Sector = component(({ x, y }: SectorProps) => {
 });
 
 interface RowProps {
-  y: () => number;
+  y: number;
 }
 
 const Row = component(({ y }: RowProps) => {
   const arr = signal(() => [...Array(cols.get()).keys()]);
 
   return h('div', () => {
-    list(arr, (i) => Sector({ x: () => i, y }));
+    list(arr, (x) => Sector({ x, y }));
   });
 });
 
@@ -72,7 +72,7 @@ const ImageMap = component(() => {
     },
     () => {
       node(scaledImage);
-      list(arr, (i) => Row({ y: () => i }));
+      list(arr, (y) => Row({ y }));
     },
   );
 });
